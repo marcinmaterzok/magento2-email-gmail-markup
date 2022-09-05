@@ -35,8 +35,16 @@ https://docs.google.com/forms/d/e/1FAIpQLSfT5F1VJXtBjGw2mLxY2aX557ctPTsCrJpURiKJ
 
 
 ## 4. CHANGELOG
-Version 1.0.0
 
+Version 1.0.1
+
+```
+- Fixed code after code review
+- Added ACL for configuration
+- Removed not used sequence in module
+```
+
+Version 1.0.0
 ```
 - First commit
 - Added support for Order emails

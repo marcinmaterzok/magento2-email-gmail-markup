@@ -7,7 +7,7 @@
         <section id="mtrzk_gmail_markup" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Gmail Markup</label>
             <tab>mtrzk_modules</tab>
-            <resource>Mtrzk_GmailMarkup::faqpage</resource>
+            <resource>Mtrzk_GmailMarkup::config</resource>
             <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
                 <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
