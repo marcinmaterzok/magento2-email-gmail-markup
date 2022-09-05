@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="email_order_set_template_vars_before">
+        <observer name="Order_Gmail_Markup" instance="Mtrzk\GmailMarkup\Observer\OrderEmailObserver" />
+    </event>
+    <event name="email_shipment_set_template_vars_before">
+        <observer name="Shipment_Gmail_Markup" instance="Mtrzk\GmailMarkup\Observer\ShipmentEmailObserver"/>
+    </event>
+</config>

@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mtrzk_modules" translate="label" sortOrder="100">
+            <label>MTRZK</label>
+        </tab>
+        <section id="mtrzk_gmail_markup" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Gmail Markup</label>
+            <tab>mtrzk_modules</tab>
+            <resource>Mtrzk_GmailMarkup::faqpage</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Is Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="is_order_enabled" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled for Order</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="mtrzk_gmail_markup/general/is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="is_shipment_enabled" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled for Shipment</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="mtrzk_gmail_markup/general/is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="merchant_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Mechant Name</label>
+                    <depends>
+                        <field id="mtrzk_gmail_markup/general/is_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="order_settings" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Order Settings</label>
+                <field id="add_billing_data" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Add Billing data to markup</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="order_status_mapping" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Order Status Mapping</label>
+                    <backend_model>Mtrzk\GmailMarkup\Model\Config\Backend\Serialized</backend_model>
+                    <frontend_model>Mtrzk\GmailMarkup\Block\Adminhtml\Form\Field\OrderMappingOptions</frontend_model>
+                    <comment>This field is for mapping Magento 2 Order status with JSON Schema status</comment>
+                </field>
+                <field id="add_action_for_customer" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Add View Order Action for registered customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_view_action_label" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>View Action Label</label>
+                    <depends>
+                        <field id="mtrzk_gmail_markup/order_settings/add_action_for_customer">1</field>
+                    </depends>
+                </field>
+                <field id="customer_view_action_description" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>View Action Short Description</label>
+                    <depends>
+                        <field id="mtrzk_gmail_markup/order_settings/add_action_for_customer">1</field>
+                    </depends>
+                </field>
+                <field id="customer_view_action_type" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>View Order Action Url</label>
+                    <source_model>Mtrzk\GmailMarkup\Model\Config\Source\UrlType</source_model>
+                </field>
+                <field id="customer_view_action_custom_url" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>View Action Custom URL</label>
+                    <depends>
+                        <field id="mtrzk_gmail_markup/order_settings/customer_view_action_type">custom</field>
+                    </depends>
+                    <comment>This field is for custom order view URL (for example in PWA). Replace variable is: order_id or increment_id</comment>
+                </field>
+                <depends>
+                    <field id="mtrzk_gmail_markup/general/is_order_enabled">1</field>
+                </depends>
+            </group>
+
+            <group id="shipment_settings" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Shipment Settings</label>
+                <field id="add_track_action" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Add Track Action</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="shipment_delivery_mapping" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Shipment Methods Names</label>
+                    <backend_model>Mtrzk\GmailMarkup\Model\Config\Backend\Serialized</backend_model>
+                    <frontend_model>Mtrzk\GmailMarkup\Block\Adminhtml\Form\Field\DeliveryOptions</frontend_model>
+                    <comment>This field is for mapping Magento 2 Delivery methods with Courier names</comment>
+                </field>
+                <field id="shipment_tracking_mapping" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Shipment Methods Mapping</label>
+                    <backend_model>Mtrzk\GmailMarkup\Model\Config\Backend\Serialized</backend_model>
+                    <frontend_model>Mtrzk\GmailMarkup\Block\Adminhtml\Form\Field\TrackingOptions</frontend_model>
+                    <comment>This field is for mapping Magento 2 Delivery with tracking URL. Replace variable is: tracking_number or shipment_id</comment>
+                </field>
+                <depends>
+                    <field id="mtrzk_gmail_markup/general/is_shipment_enabled">1</field>
+                </depends>
+            </group>
+
+            <group id="advanced_settings" translate="label" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Advanced Settings</label>
+                <field id="add_markup_to_emails" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Add View Order Action for registered customer</label>
+                    <source_model>Mtrzk\GmailMarkup\Model\Config\Source\EmailMx</source_model>
+                </field>
+                <depends>
+                    <field id="mtrzk_gmail_markup/general/is_enabled">1</field>
+                </depends>
+            </group>
+        </section>
+    </system>
+</config>

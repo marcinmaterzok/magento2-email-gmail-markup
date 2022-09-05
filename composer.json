@@ -1,0 +1,29 @@
+{
+    "name": "mtrzk/magento2-gmail-markup",
+    "description": "Magento 2 for Email Gmail Markup functionality",
+    "version": "1.0.0",
+    "require": {
+        "php": ">=7.4.0",
+        "magento/module-sales": "*",
+        "magento/module-email": "*",
+        "magento/module-backend": "*"
+    },
+    "license": [
+        "proprietary"
+    ],
+    "authors": [
+        {
+            "name": "Marcin Materzok",
+            "email": "marcin@mtrzk.com"
+        }
+    ],
+    "type": "magento2-module",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mtrzk\\GmailMarkup\\": ""
+        }
+    }
+}

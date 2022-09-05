@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mtrzk_gmail_markup>
+            <general>
+                <is_enabled>1</is_enabled>
+                <is_order_enabled>1</is_order_enabled>
+                <is_shipment_enabled>1</is_shipment_enabled>
+                <merchant_name>Your Store Name</merchant_name>
+             </general>
+            <order_settings>
+                <add_billing_data>0</add_billing_data>
+                <customer_view_action_label>View Order</customer_view_action_label>
+                <customer_view_action_description>Show your order on store site</customer_view_action_description>
+                <customer_view_action_type>default</customer_view_action_type>
+                <customer_view_action_custom_url>http://yourstore.com/order/view/id/{{order_id}}/</customer_view_action_custom_url>
+                <order_status_mapping>{"_1662154108769_769":{"order_status":"pending","schema_status":"http:\/\/schema.org\/OrderProcessing"},"_1662154115688_688":{"order_status":"canceled","schema_status":"http:\/\/schema.org\/OrderCancelled"},"_1662154123960_960":{"order_status":"payment_review","schema_status":"http:\/\/schema.org\/OrderPaymentDue"},"_1662154132124_124":{"order_status":"pending_payment","schema_status":"http:\/\/schema.org\/OrderProcessing"},"_1662154142564_564":{"order_status":"complete","schema_status":"http:\/\/schema.org\/OrderDelivered"},"_1662154147793_793":{"order_status":"holded","schema_status":"http:\/\/schema.org\/OrderProblem"},"_1662154161029_29":{"order_status":"paypal_reversed","schema_status":"http:\/\/schema.org\/OrderProblem"},"_1662154179561_561":{"order_status":"fraud","schema_status":"http:\/\/schema.org\/OrderProblem"}}</order_status_mapping>
+            </order_settings>
+            <shipment_settings>
+                <add_track_action>0</add_track_action>
+            </shipment_settings>
+            <advanced_settings>
+                <add_markup_to_emails>default</add_markup_to_emails>
+            </advanced_settings>
+        </mtrzk_gmail_markup>
+    </default>
+</config>
